@@ -51,7 +51,7 @@ colnames(StepPerDay) <- c("date","steps")
 ##  (b) Make a histogram of the total number of steps taken each day
 
 ```{r }
-ggplot(StepPerDay,aes(steps))+geom_histogram(binwidth=2500,col="red",fill="blue")+scale_x_continuous(breaks=seq(0,25000,2500))+scale_y_continuous(breaks=seq(0,18,2))+ggtitle("Histogram of Steps per day")+ xlab("steps")+ylab("Frequency")
+ggplot(StepPerDay,aes(steps))+geom_histogram(binwidth=2500,col="red",fill="blue")+scale_x_continuous(breaks=seq(0,25000,2500))+scale_y_continuous(breaks=seq(0,18,2))+ggtitle("Histogram of Steps per day")+ xlab("Steps")+ylab("Frequency")
 ```
 
 ##  (c) Calculate and report the mean and median of the total number of steps taken per day.
@@ -72,7 +72,7 @@ AvgStepsPerInterval <- aggregate(data$steps,by=list(data$interval),FUN=mean, na.
 
 colnames(AvgStepsPerInterval) <- c("interval","avgsteps")
 
-ggplot(AvgStepsPerInterval, aes(interval, avgsteps)) + geom_line(col="red")+ggtitle("Average steps per time interval")+xlab("Time")+ylab("Steps")+theme(plot.title = element_text(face="bold", size=12))
+ggplot(AvgStepsPerInterval, aes(interval, avgsteps)) + geom_line(col="red")+ggtitle("Average Steps per time interval")+xlab("Time")+ylab("Steps")+theme(plot.title = element_text(face="bold", size=12))
 
 ```
 
@@ -105,7 +105,7 @@ StepPerDay_mvr <- aggregate(data_mvr$steps,by=list(data_mvr$date),FUN=sum)
 
 colnames(StepPerDay_mvr) <- c("date","tot_steps")
 
-ggplot(StepPerDay_mvr,aes(tot_steps))+geom_histogram(binwidth=2500,col="red",fill="blue")+scale_x_continuous(breaks=seq(0,25000,2500))+scale_y_continuous(breaks=seq(0,26,2))+ggtitle("Histogram of Steps per day after missing values filled in")+ xlab("steps")+ylab("Frequency")
+ggplot(StepPerDay_mvr,aes(tot_steps))+geom_histogram(binwidth=2500,col="red",fill="blue")+scale_x_continuous(breaks=seq(0,25000,2500))+scale_y_continuous(breaks=seq(0,26,2))+ggtitle("Histogram of Steps per day after Missing values filled in")+ xlab("steps")+ylab("Frequency")
 
 ```
 ##(C)  Display Mean and Median values of the Steps with missing data filled in.
@@ -128,10 +128,9 @@ AvgStepPerDayType <- aggregate(data_mvr[,1],by=list(data_mvr$daytype1,data_mvr$i
 
 colnames(AvgStepPerDayType) <- c("day_type","interval","avg_steps")
 
-ggplot(AvgStepPerDayType,aes(interval,avg_steps))+geom_line(col="blue")+facet_grid(day_type~.) +ggtitle("Average steps per time interval")+xlab("Time Interval")+ylab("Avg # of Steps")
+ggplot(AvgStepPerDayType,aes(interval,avg_steps))+geom_line(col="blue")+facet_grid(day_type~.) +ggtitle("Average Steps per time interval")+xlab("Time Interval")+ylab("Avg # of Steps")
 
 
 
 ```
 
-## testing commit
