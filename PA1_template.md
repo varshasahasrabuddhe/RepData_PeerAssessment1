@@ -29,15 +29,34 @@ install.packages("plyr",repos = "http://cran.us.r-project.org")
 
 ```
 ## package 'plyr' successfully unpacked and MD5 sums checked
-## Warning in install.packages :
-##   cannot remove prior installation of package 'plyr'
-## Warning in install.packages :
-##   problem copying C:\Users\vsahasrabuddhe\Documents\R\win-library\3.6\00LOCK\plyr\libs\i386\plyr.dll to C:\Users\vsahasrabuddhe\Documents\R\win-library\3.6\plyr\libs\i386\plyr.dll: Permission denied
-## Warning in install.packages :
-##   restored 'plyr'
+```
+
+```
+## Warning: cannot remove prior installation of package 'plyr'
+```
+
+```
+## Warning in file.copy(savedcopy, lib, recursive = TRUE): problem copying C:
+## \Users\vsahasrabuddhe\Documents\R\win-library\3.6\00LOCK\plyr\libs\i386\plyr.dll
+## to C:\Users\vsahasrabuddhe\Documents\R\win-library\3.6\plyr\libs\i386\plyr.dll:
+## Permission denied
+```
+
+```
+## Warning in file.copy(savedcopy, lib, recursive = TRUE): problem copying C:
+## \Users\vsahasrabuddhe\Documents\R\win-library\3.6\00LOCK\plyr\libs\x64\plyr.dll
+## to C:\Users\vsahasrabuddhe\Documents\R\win-library\3.6\plyr\libs\x64\plyr.dll:
+## Permission denied
+```
+
+```
+## Warning: restored 'plyr'
+```
+
+```
 ## 
 ## The downloaded binary packages are in
-## 	C:\Users\vsahasrabuddhe\AppData\Local\Temp\Rtmpa0lNry\downloaded_packages
+## 	C:\Users\vsahasrabuddhe\AppData\Local\Temp\Rtmp4KcaCL\downloaded_packages
 ```
 
 ```r
@@ -54,7 +73,8 @@ library("dplyr")
 ```
 ## The following objects are masked from 'package:plyr':
 ## 
-##     arrange, count, desc, failwith, id, mutate, rename, summarise, summarize
+##     arrange, count, desc, failwith, id, mutate, rename, summarise,
+##     summarize
 ```
 
 ```
@@ -82,7 +102,7 @@ install.packages("ggplot2",repos = "http://cran.us.r-project.org")
 ## package 'ggplot2' successfully unpacked and MD5 sums checked
 ## 
 ## The downloaded binary packages are in
-## 	C:\Users\vsahasrabuddhe\AppData\Local\Temp\Rtmpa0lNry\downloaded_packages
+## 	C:\Users\vsahasrabuddhe\AppData\Local\Temp\Rtmp4KcaCL\downloaded_packages
 ```
 
 ```r
@@ -210,7 +230,7 @@ StepPerDay_mvr <- aggregate(data_mvr$steps,by=list(data_mvr$date),FUN=sum)
 
 colnames(StepPerDay_mvr) <- c("date","tot_steps")
 
-ggplot(StepPerDay_mvr,aes(tot_steps))+geom_histogram(binwidth=2500,col="red",fill="blue")+scale_x_continuous(breaks=seq(0,25000,2500))+scale_y_continuous(breaks=seq(0,26,2))+ggtitle("Histogram of Steps per day")+ xlab("steps")+ylab("Frequency")
+ggplot(StepPerDay_mvr,aes(tot_steps))+geom_histogram(binwidth=2500,col="red",fill="blue")+scale_x_continuous(breaks=seq(0,25000,2500))+scale_y_continuous(breaks=seq(0,26,2))+ggtitle("Histogram of Steps per day after missing values filled in")+ xlab("steps")+ylab("Frequency")
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
